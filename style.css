@@ -1,0 +1,13 @@
+:root {
+  --ak-flow-background: url("/media/background.jpg") !important;
+
+  --ak-accent: #0056aa !important;
+  --ak-dark-foreground: #3d4451 !important;
+  --ak-dark-foreground-darker: #000 !important;
+  --ak-dark-foreground-link: #f07f3c !important;
+  --ak-dark-background: #fff !important;
+  --ak-dark-background-darker: #f5faff !important;
+  --ak-dark-background-light: #fff !important;
+  --ak-dark-background-light-ish: #fff !important;
+  --ak-dark-background-lighter: #fff !important;
+}
