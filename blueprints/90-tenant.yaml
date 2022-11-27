@@ -1,0 +1,37 @@
+metadata:
+  name: Proteus - Tenant
+version: 1
+entries:
+  - model: authentik_blueprints.metaapplyblueprint
+    attrs:
+      identifiers:
+        name: Proteus - Authentication flow
+      required: true
+  - model: authentik_blueprints.metaapplyblueprint
+    attrs:
+      identifiers:
+        name: Proteus - Invalidation flow
+      required: true
+  - model: authentik_tenants.tenant
+    attrs:
+      branding_title: "D.S.R. Proteus-Eretes"
+      branding_logo: "/media/logo.png"
+      branding_favicon: "/media/favicon.png"
+      event_retention: "days=30"
+      flow_authentication: !Find [authentik_flows.flow, [slug, login]]
+      flow_invalidation: !Find [authentik_flows.flow, [slug, logout]]
+      attributes:
+        settings:
+          enabledFeatures:
+            apiDrawer: false
+            notificationDrawer: false
+            settings: true
+            applicationEdit: false
+            search: false
+          navbar:
+            userDisplay: name
+          layout:
+            type: 2-column
+    identifiers:
+      domain: proteus-eretes.nl
+      default: True

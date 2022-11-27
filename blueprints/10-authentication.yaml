@@ -1,0 +1,72 @@
+version: 1
+metadata:
+  name: Proteus - Authentication flow
+entries:
+  - model: authentik_blueprints.metaapplyblueprint
+    attrs:
+      identifiers:
+        name: Proteus - Password change flow
+      required: true
+  - id: proteus-auth-flow
+    model: authentik_flows.flow
+    identifiers:
+      slug: login
+    attrs:
+      designation: authentication
+      layout: sidebar_left
+      name: Welkom bij Proteus-Eretes
+      title: Welkom bij Proteus-Eretes!
+      background_url: "/media/background.jpg"
+  - id: proteus-authentication-identification
+    model: authentik_stages_identification.identificationstage
+    identifiers:
+      name: proteus-authentication-identification
+    attrs:
+      user_fields:
+        - email
+        - username
+  - id: proteus-authentication-password
+    model: authentik_stages_password.passwordstage
+    identifiers:
+      name: proteus-authentication-password
+    attrs:
+      backends:
+        - authentik.core.auth.InbuiltBackend
+        - authentik.core.auth.TokenBackend
+      configure_flow: !Find [authentik_flows.flow, [slug, changepassword]]
+      failed_attempts_before_cancel: 5
+  - id: proteus-authentication-mfa-validation
+    model: authentik_stages_authenticator_validate.authenticatorvalidatestage
+    identifiers:
+      name: proteus-authentication-mfa-validation
+    attrs:
+      not_configured_action: skip
+      device_classes:
+        - totp
+        - webauthn
+  - id: proteus-authentication-login
+    model: authentik_stages_user_login.userloginstage
+    identifiers:
+      name: proteus-authentication-login
+    attrs:
+      session_duration: seconds=0
+  - model: authentik_flows.flowstagebinding
+    identifiers:
+      order: 10
+      stage: !KeyOf proteus-authentication-identification
+      target: !KeyOf proteus-auth-flow
+  - model: authentik_flows.flowstagebinding
+    identifiers:
+      order: 20
+      stage: !KeyOf proteus-authentication-password
+      target: !KeyOf proteus-auth-flow
+  - model: authentik_flows.flowstagebinding
+    identifiers:
+      order: 30
+      stage: !KeyOf proteus-authentication-mfa-validation
+      target: !KeyOf proteus-auth-flow
+  - model: authentik_flows.flowstagebinding
+    identifiers:
+      order: 100
+      stage: !KeyOf proteus-authentication-login
+      target: !KeyOf proteus-auth-flow

@@ -1,0 +1,11 @@
+version: 1
+metadata:
+  name: Proteus - Provider authorization flow (implicit consent)
+entries:
+  - model: authentik_flows.flow
+    identifiers:
+      slug: auth-implicit
+    attrs:
+      designation: authorization
+      name: Authorize Application
+      title: Redirecting to %(app)s
