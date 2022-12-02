@@ -15,7 +15,6 @@ entries:
   - id: tenant-proteus
     model: authentik_tenants.tenant
     identifiers:
-      name: D.S.R. Proteus-Eretes
       domain: proteus-eretes.nl
       default: True
     attrs:
