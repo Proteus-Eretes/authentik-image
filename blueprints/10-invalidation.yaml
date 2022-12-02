@@ -2,20 +2,20 @@ version: 1
 metadata:
   name: Proteus - Invalidation flow
 entries:
-  - model: authentik_flows.flow
-    id: flow
+  - id: flow-logout
+    model: authentik_flows.flow
     identifiers:
       slug: logout
     attrs:
       designation: invalidation
       name: Logout
       title: Proteus Invalidation Flow
-  - model: authentik_stages_user_logout.userlogoutstage
-    id: proteus-invalidation-logout
+  - id: logoutstage-invalidation
+    model: authentik_stages_user_logout.userlogoutstage
     identifiers:
-      name: proteus-invalidation-logout
+      name: Proteus Logout
   - model: authentik_flows.flowstagebinding
     identifiers:
       order: 0
       stage: !KeyOf proteus-invalidation-logout
-      target: !KeyOf flow
+      target: !KeyOf flow-logout

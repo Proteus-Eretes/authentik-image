@@ -2,9 +2,8 @@ version: 1
 metadata:
   name: Proteus - Policies - Proteus Account
 entries:
-  - model: authentik_policies_expression.expressionpolicy
-    identifiers:
-      name: Proteus Account
+  - id: policy-proteus-account
+    model: authentik_policies_expression.expressionpolicy
     attrs:
       name: Proteus Account
       expression:

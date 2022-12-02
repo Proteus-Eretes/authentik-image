@@ -2,7 +2,8 @@ version: 1
 metadata:
   name: Proteus - Provider authorization flow (implicit consent)
 entries:
-  - model: authentik_flows.flow
+  - id: flow-auth-implicit
+    model: authentik_flows.flow
     identifiers:
       slug: auth-implicit
     attrs:

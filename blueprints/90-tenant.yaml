@@ -12,7 +12,11 @@ entries:
       identifiers:
         name: Proteus - Invalidation flow
       required: true
-  - model: authentik_tenants.tenant
+  - id: tenant-proteus
+    model: authentik_tenants.tenant
+    identifiers:
+      domain: proteus-eretes.nl
+      default: True
     attrs:
       branding_title: "D.S.R. Proteus-Eretes"
       branding_logo: "/media/logo.png"
@@ -32,6 +36,3 @@ entries:
             userDisplay: name
           layout:
             type: 2-column
-    identifiers:
-      domain: proteus-eretes.nl
-      default: True

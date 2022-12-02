@@ -2,9 +2,8 @@ version: 1
 metadata:
   name: Proteus - OAuth2 Provider - Scopes
 entries:
-  - model: authentik_providers_oauth2.scopemapping
-    identifiers:
-      name: oauth-scope-openid
+  - id: oauth-scope-openid
+    model: authentik_providers_oauth2.scopemapping
     attrs:
       name: "OpenID 'openid'"
       scope_name: openid
@@ -12,9 +11,8 @@ entries:
         # This scope is required by the OpenID-spec, and must as such exist in authentik.
         # The scope by itself does not grant any information
         return {}
-  - model: authentik_providers_oauth2.scopemapping
-    identifiers:
-      name: oauth-scope-email
+  - id: oauth-scope-email
+    model: authentik_providers_oauth2.scopemapping
     attrs:
       name: "OpenID 'email'"
       scope_name: email
@@ -24,9 +22,8 @@ entries:
           "email": request.user.email,
           "email_verified": True
         }
-  - model: authentik_providers_oauth2.scopemapping
-    identifiers:
-      name: oauth-scope-profile
+  - id: oauth-scope-profile
+    model: authentik_providers_oauth2.scopemapping
     attrs:
       name: "OpenID 'profile'"
       scope_name: profile
@@ -43,9 +40,8 @@ entries:
           "nickname": request.user.username,
           "groups": [group.name for group in request.user.ak_groups.all()],
         }
-  - model: authentik_providers_oauth2.scopemapping
-    identifiers:
-      name: oauth-scope-proteus
+  - id: oauth-scope-proteus
+    model: authentik_providers_oauth2.scopemapping
     attrs:
       name: "OpenID 'proteus'"
       scope_name: proteus
