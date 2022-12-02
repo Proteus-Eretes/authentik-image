@@ -4,9 +4,9 @@ metadata:
 entries:
   - model: authentik_policies_expression.expressionpolicy
     identifiers:
-      name: proteus-account
+      name: Proteus Account
     attrs:
-      name: proteus-account
+      name: Proteus Account
       expression:
         "if \"proteusId\" not in request.user.attributes:\n  ak_message(\"\
         Dit account lijkt geen Proteus account te zijn!\")\n  return False\nreturn True"
