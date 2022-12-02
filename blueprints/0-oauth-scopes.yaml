@@ -53,6 +53,6 @@ entries:
       expression: |
         return {
           # This adds some Proteus specific information about the user to the request.
-          "proteusId": request.user.attributes.proteusId,
-          "lastSync": request.user.attributes.lastSync,
+          "proteusId": request.user.attributes.get("proteusId", ""),
+          "lastSync": request.user.attributes.get("lastSync", ""),
         }
