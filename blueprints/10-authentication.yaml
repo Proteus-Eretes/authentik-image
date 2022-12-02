@@ -33,7 +33,7 @@ entries:
       backends:
         - authentik.core.auth.InbuiltBackend
         - authentik.core.auth.TokenBackend
-      configure_flow: !KeyOf flow-changepassword
+      configure_flow: !Find [authentik_flows.flow, [slug, changepassword]]
       failed_attempts_before_cancel: 5
   - id: authenticatorvalidatestage-authentication-mfa
     model: authentik_stages_authenticator_validate.authenticatorvalidatestage
