@@ -3,6 +3,9 @@ metadata:
   name: Proteus - OAuth2 Provider - Scopes
 entries:
   - model: authentik_providers_oauth2.scopemapping
+    identifiers:
+      name: oauth-scope-openid
+      managed: goauthentik.io/providers/oauth2/scope-openid
     attrs:
       name: "OpenID 'openid'"
       scope_name: openid
@@ -11,6 +14,9 @@ entries:
         # The scope by itself does not grant any information
         return {}
   - model: authentik_providers_oauth2.scopemapping
+    identifiers:
+      name: oauth-scope-email
+      managed: goauthentik.io/providers/oauth2/scope-email
     attrs:
       name: "OpenID 'email'"
       scope_name: email
@@ -21,6 +27,9 @@ entries:
           "email_verified": True
         }
   - model: authentik_providers_oauth2.scopemapping
+    identifiers:
+      name: oauth-scope-profile
+      managed: goauthentik.io/providers/oauth2/scope-profile
     attrs:
       name: "OpenID 'profile'"
       scope_name: profile
@@ -38,6 +47,9 @@ entries:
           "groups": [group.name for group in request.user.ak_groups.all()],
         }
   - model: authentik_providers_oauth2.scopemapping
+    identifiers:
+      name: oauth-scope-proteus
+      managed: proteus-eretes.nl/providers/oauth2/scope-proteus
     attrs:
       name: "OpenID 'proteus'"
       scope_name: proteus
