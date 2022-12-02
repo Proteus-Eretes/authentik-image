@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  name: Proteus - Certificates
+entries:
+  - model: authentik_crypto.certificatekeypair
+    identifiers:
+      name: cert-proteus
+    attrs:
+      name: Proteus-Eretes Certificate
