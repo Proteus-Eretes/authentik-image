@@ -4,8 +4,9 @@ metadata:
 entries:
   - id: oauth-scope-openid
     model: authentik_providers_oauth2.scopemapping
-    attrs:
+    identifiers:
       name: "OpenID 'openid'"
+    attrs:
       scope_name: openid
       expression: |
         # This scope is required by the OpenID-spec, and must as such exist in authentik.
@@ -13,8 +14,9 @@ entries:
         return {}
   - id: oauth-scope-email
     model: authentik_providers_oauth2.scopemapping
-    attrs:
+    identifiers:
       name: "OpenID 'email'"
+    attrs:
       scope_name: email
       description: "Email address"
       expression: |
@@ -24,8 +26,9 @@ entries:
         }
   - id: oauth-scope-profile
     model: authentik_providers_oauth2.scopemapping
-    attrs:
+    identifiers:
       name: "OpenID 'profile'"
+    attrs:
       scope_name: profile
       description: "General Profile Information"
       expression: |
@@ -42,8 +45,9 @@ entries:
         }
   - id: oauth-scope-proteus
     model: authentik_providers_oauth2.scopemapping
-    attrs:
+    identifiers:
       name: "OpenID 'proteus'"
+    attrs:
       scope_name: proteus
       description: "Proteus Specific Information"
       expression: |
