@@ -10,3 +10,4 @@ entries:
       designation: authorization
       name: Authorize Application
       title: Redirecting to %(app)s
+      authentication: require_authenticated

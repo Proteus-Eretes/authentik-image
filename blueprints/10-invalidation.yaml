@@ -10,6 +10,7 @@ entries:
       designation: invalidation
       name: Logout
       title: Proteus Invalidation Flow
+      authentication: require_authenticated
   - id: logoutstage-invalidation
     model: authentik_stages_user_logout.userlogoutstage
     identifiers:

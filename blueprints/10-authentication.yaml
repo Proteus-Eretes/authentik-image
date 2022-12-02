@@ -17,6 +17,7 @@ entries:
       name: Welkom bij Proteus-Eretes
       title: Welkom bij Proteus-Eretes!
       background_url: "/media/background.jpg"
+      authentication: require_unauthenticated
   - id: identification-authentication
     model: authentik_stages_identification.identificationstage
     identifiers:
