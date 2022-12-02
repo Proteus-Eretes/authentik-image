@@ -22,8 +22,8 @@ entries:
       branding_logo: "/media/logo.png"
       branding_favicon: "/media/favicon.png"
       event_retention: "days=30"
-      flow_authentication: !Find [authentik_flows.flow, [slug, login]]
-      flow_invalidation: !Find [authentik_flows.flow, [slug, logout]]
+      flow_authentication: !KeyOf flow-authentication
+      flow_invalidation: !KeyOf flow-invalidation
       attributes:
         settings:
           enabledFeatures:
